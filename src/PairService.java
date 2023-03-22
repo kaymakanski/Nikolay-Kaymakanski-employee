@@ -32,6 +32,8 @@ public class PairService {
                 Record secondEmployee = allRecords.get(j);
 
                 if(firstEmployee.getAssignedProject().equals(secondEmployee.getAssignedProject())
+                        //don't count entries of the same employee
+                        && !(firstEmployee.getEmployeeID().equals(secondEmployee.getEmployeeID()))
                         && haveWorkedTogether(firstEmployee, secondEmployee)) {
                     long daysWorkedTogether = calculateDaysWorkedTogether(firstEmployee, secondEmployee);
 
